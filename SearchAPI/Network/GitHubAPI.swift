@@ -39,10 +39,10 @@ extension GitHubAPI: TargetType {
             return .requestParameters(
                 parameters: [
                     "q": text,
-                    // "sort": "",         /* 기본값  best match */
-                    "order": sort,     /* 기본값 desc, asc*/
-                    "per_page": perPage,     /* 기본값 30 */
-                    "page": page           /* 기본값 1 */
+                    // "sort": "",          /* 기본값  best match */
+                    "order": sort,          /* 기본값 desc, asc*/
+                    "per_page": perPage,    /* 기본값 30 */
+                    "page": page            /* 기본값 1 */
                 ],
                 encoding: URLEncoding.queryString
             )
@@ -52,7 +52,11 @@ extension GitHubAPI: TargetType {
     var headers: [String: String]? {
         switch self {
         case .searchRepositories:
-            return [ "Accept": "application/vnd.github.v3+json"]
+            return [
+                // TODO: 시간당 요청한도 늘리기 토큰 필요한대 -> 필요하면 RemotoConfig로 적용할 것
+                // "Authorization": "token ...."
+                "Accept": "application/vnd.github.v3+json"
+            ]
         }
     }
 }
