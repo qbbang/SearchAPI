@@ -8,25 +8,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SearchAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="SearchAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IuT-bC-795">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gES-yW-8sb"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-Cw-ps3">
+                                <rect key="frame" x="0.0" y="95" width="414" height="767"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IuT-bC-795" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KS3-zj-D4W"/>
+                            <constraint firstItem="dY6-Cw-ps3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VKJ-cz-mb5"/>
+                            <constraint firstItem="dY6-Cw-ps3" firstAttribute="top" secondItem="IuT-bC-795" secondAttribute="bottom" id="aDx-P3-jTb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dY6-Cw-ps3" secondAttribute="bottom" id="cz2-2F-EFQ"/>
+                            <constraint firstItem="IuT-bC-795" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d6T-pJ-uli"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dY6-Cw-ps3" secondAttribute="trailing" id="gkK-Hl-09M"/>
+                            <constraint firstItem="IuT-bC-795" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rdb-1W-JYf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="IuT-bC-795" id="XXR-Na-uqN"/>
+                        <outlet property="tableView" destination="dY6-Cw-ps3" id="VyL-en-jmy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="64" y="88"/>
+            <point key="canvasLocation" x="63.768115942028992" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
