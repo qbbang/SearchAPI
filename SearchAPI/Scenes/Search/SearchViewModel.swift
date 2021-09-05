@@ -20,8 +20,6 @@ class SearchViewModel {
         disposeBag = DisposeBag()
     }
     
-    
-    
     func request(text: String, sort: SortType = .desc, perPage: Int = 30, page: Int = 1 ) {
         provider.rx
             .request(
@@ -33,10 +31,13 @@ class SearchViewModel {
                 )
             )
             .map(SearchRepositoriesResponse.self)
-            .subscribe { event in
+            .subscribe { [weak self] event in
+                guard let this = self else { return }
                 switch event {
                 case .success(let res):
                     print("✅ res\n", res)
+                    guard let items = res.items else { return }
+                    this.items.onNext(items)
                 case .failure(let err):
                     print("❌ err\n", err.localizedDescription)
                 }

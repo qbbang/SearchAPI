@@ -22,6 +22,10 @@
 		E81BC19E26E501680089549E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81BC19D26E501680089549E /* BaseViewController.swift */; };
 		E81BC1A326E504040089549E /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81BC1A226E504040089549E /* Bindable.swift */; };
 		E81BC1A526E505320089549E /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81BC1A426E505320089549E /* SortType.swift */; };
+		E81BC1AB26E52E940089549E /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81BC1A926E52E940089549E /* SearchResultTableViewCell.swift */; };
+		E81BC1AC26E52E940089549E /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E81BC1AA26E52E940089549E /* SearchResultTableViewCell.xib */; };
+		E81BC1AF26E533870089549E /* +Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81BC1AE26E533870089549E /* +Int.swift */; };
+		E81BC1B126E538A70089549E /* +String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81BC1B026E538A70089549E /* +String.swift */; };
 		E8A3489A26E4D9050056E8FF /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3489926E4D9050056E8FF /* GitHubAPI.swift */; };
 		E8A3489F26E4EF400056E8FF /* SearchRepositoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3489E26E4EF400056E8FF /* SearchRepositoriesResponse.swift */; };
 		E8A348A426E4F7F30056E8FF /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E8A348A326E4F7F30056E8FF /* .swiftlint.yml */; };
@@ -71,6 +75,10 @@
 		E81BC19D26E501680089549E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E81BC1A226E504040089549E /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		E81BC1A426E505320089549E /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
+		E81BC1A926E52E940089549E /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		E81BC1AA26E52E940089549E /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
+		E81BC1AE26E533870089549E /* +Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Int.swift"; sourceTree = "<group>"; };
+		E81BC1B026E538A70089549E /* +String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+String.swift"; sourceTree = "<group>"; };
 		E8A3489926E4D9050056E8FF /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		E8A3489E26E4EF400056E8FF /* SearchRepositoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesResponse.swift; sourceTree = "<group>"; };
 		E8A348A326E4F7F30056E8FF /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -184,6 +192,7 @@
 		E81BC19026E4FEDC0089549E /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				E81BC1A626E51CDB0089549E /* Cell */,
 				E81BC1A126E502E80089549E /* Response */,
 				E81BC19226E4FF160089549E /* SearchViewController.swift */,
 				E81BC19426E4FF2E0089549E /* SearchViewModel.swift */,
@@ -201,6 +210,7 @@
 		E81BC19626E4FF560089549E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E81BC1AD26E533780089549E /* Extension */,
 				E81BC19D26E501680089549E /* BaseViewController.swift */,
 				E81BC1A226E504040089549E /* Bindable.swift */,
 				E81BC1A426E505320089549E /* SortType.swift */,
@@ -222,6 +232,24 @@
 				E8A3489E26E4EF400056E8FF /* SearchRepositoriesResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		E81BC1A626E51CDB0089549E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E81BC1A926E52E940089549E /* SearchResultTableViewCell.swift */,
+				E81BC1AA26E52E940089549E /* SearchResultTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E81BC1AD26E533780089549E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E81BC1AE26E533870089549E /* +Int.swift */,
+				E81BC1B026E538A70089549E /* +String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		EA320FB3EF25D11629CF461C /* Pods */ = {
@@ -347,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8A348A426E4F7F30056E8FF /* .swiftlint.yml in Resources */,
+				E81BC1AC26E52E940089549E /* SearchResultTableViewCell.xib in Resources */,
 				E80A70E126E4CC8500121EAD /* LaunchScreen.storyboard in Resources */,
 				E80A70DE26E4CC8500121EAD /* Assets.xcassets in Resources */,
 				E80A70DC26E4CC8400121EAD /* Main.storyboard in Resources */,
@@ -495,10 +524,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E81BC1A326E504040089549E /* Bindable.swift in Sources */,
+				E81BC1AB26E52E940089549E /* SearchResultTableViewCell.swift in Sources */,
 				E8A3489F26E4EF400056E8FF /* SearchRepositoriesResponse.swift in Sources */,
 				E81BC19326E4FF160089549E /* SearchViewController.swift in Sources */,
 				E81BC19E26E501680089549E /* BaseViewController.swift in Sources */,
+				E81BC1B126E538A70089549E /* +String.swift in Sources */,
 				E81BC1A526E505320089549E /* SortType.swift in Sources */,
+				E81BC1AF26E533870089549E /* +Int.swift in Sources */,
 				E81BC19526E4FF2E0089549E /* SearchViewModel.swift in Sources */,
 				E80A70D526E4CC8400121EAD /* AppDelegate.swift in Sources */,
 				E8A3489A26E4D9050056E8FF /* GitHubAPI.swift in Sources */,

@@ -13,21 +13,21 @@ struct SearchRepositoriesResponse: Codable {
     var items: [Item]?
 
     enum CodingKeys: String, CodingKey {
-        case totalCount
-        case incompleteResults
+        case totalCount = "total_count"
+        case incompleteResults = "incomplete_results"
         case items
     }
 }
 
 // MARK: - Item
 struct Item: Codable {
-    var fullName: String?                // 이름
-    var description: String?            // 설명
-    var updatedAt: String?              // 마지막 업데이트 한달까지는 표시하는거 같은 그 후는 날짜 표기 updated_at": "2021-09-05T14:17:34Z",
-    var stargazersCount: Int?           // 별갯수
-    var language: String?               // 언어
-    var license: License?               // 라이센스 "\(spdx_id) license"
-    var htmlurl: String?                // 상세페이지
+    var fullName: String?
+    var description: String?
+    var updatedAt: String?
+    var stargazersCount: Int?
+    var language: String?
+    var license: License?
+    var htmlurl: String?
     
     enum CodingKeys: String, CodingKey {
         case fullName = "full_name"

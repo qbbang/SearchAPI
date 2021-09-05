@@ -8,5 +8,6 @@
 import Foundation
 
 protocol Bindable {
+    func setUI()
     func bind()
 }

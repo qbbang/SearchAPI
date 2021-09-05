@@ -40,10 +40,13 @@
                             <constraint firstItem="IuT-bC-795" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rdb-1W-JYf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="dY6-Cw-ps3" id="VyL-en-jmy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="64" y="88"/>
+            <point key="canvasLocation" x="63.768115942028992" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>
