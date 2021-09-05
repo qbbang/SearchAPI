@@ -42,7 +42,7 @@ extension GitHubAPI: TargetType {
                     // "sort": "",          /* 기본값  best match */
                     "order": sort,          /* 기본값 desc, asc*/
                     "per_page": perPage,    /* 기본값 30 */
-                    "page": page            /* 기본값 1 */
+                    "page": page            /* 기본값 1,  total / 30 -> 페이지갯수 */
                 ],
                 encoding: URLEncoding.queryString
             )
@@ -54,7 +54,7 @@ extension GitHubAPI: TargetType {
         case .searchRepositories:
             return [
                 // TODO: 시간당 요청한도 늘리기 토큰 필요한대 -> 필요하면 RemotoConfig로 적용할 것
-                // "Authorization": "token ...."
+//                 "Authorization": "token ...",
                 "Accept": "application/vnd.github.v3+json"
             ]
         }

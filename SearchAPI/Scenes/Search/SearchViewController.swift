@@ -9,26 +9,53 @@ import UIKit
 import RxCocoa
 
 class SearchViewController: BaseViewController<SearchViewModel>, Bindable {
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUI()
+        bind()
+    }
+    
     func bind() {
         viewModel = SearchViewModel()
+        
+        viewModel.isLoading
+            .subscribe(onNext: { [weak self] isLoading in
+                guard let this = self else { return }
+                
+                if isLoading {
+                    this.activityIndicator.startAnimating()
+                } else {
+                    this.activityIndicator.stopAnimating()
+                }
+            })
+            .disposed(by: disposeBag)
         
         viewModel.items
             .bind(to: tableView.rx.items(cellIdentifier: "SearchResultTableViewCell", cellType: SearchResultTableViewCell.self)) { (_, element, cell) in
                 cell.bind(model: element)
             }
             .disposed(by: disposeBag)
+        
+        tableView.rx
+            .willDisplayCell
+            .subscribe { [weak self] event in
+                guard let this = self else { return }
+                if let row = event.element?.indexPath.row, (row + 1) == this.viewModel.itemCnt {
+                    guard let text = this.searchBar.text else { return }
+                    
+                    this.viewModel.request(text: text)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     func setUI() {
         tableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
-    }
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUI()
-        bind()
+        tableView.keyboardDismissMode = .onDrag
+        view.addSubview(activityIndicator)
     }
 }
 
