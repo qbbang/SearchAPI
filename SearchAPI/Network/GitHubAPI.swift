@@ -8,12 +8,14 @@
 import Moya
 
 enum GitHubAPI {
-    case searchRepositories
+    case searchRepositories(String, String, Int, Int)
 }
 
 extension GitHubAPI: TargetType {
     var baseURL: URL {
-        guard let url = URL(string: "https://api.github.com") else { fatalError() }
+        guard let url = URL(string: "https://api.github.com") else {
+            fatalError("초기화 되지 않음")
+        }
         return url
     }
     
@@ -33,14 +35,14 @@ extension GitHubAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .searchRepositories:
+        case .searchRepositories(let text, let sort, let perPage, let page):
             return .requestParameters(
                 parameters: [
-                    "q": "q",
+                    "q": text,
                     // "sort": "",         /* 기본값  best match */
-                    "order": "desc",     /* 기본값 desc, asc*/
-                    "per_page": 30,     /* 기본값 30 */
-                    "page": 1           /* 기본값 1 */
+                    "order": sort,     /* 기본값 desc, asc*/
+                    "per_page": perPage,     /* 기본값 30 */
+                    "page": page           /* 기본값 1 */
                 ],
                 encoding: URLEncoding.queryString
             )

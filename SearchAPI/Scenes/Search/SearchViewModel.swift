@@ -1,20 +1,32 @@
 //
-//  ViewModel.swift
+//  SearchViewModel.swift
 //  SearchAPI
 //
 //  Created by 이규현 on 2021/09/05.
 //
 
-import Moya
+import Foundation
 import RxSwift
+import Moya
 
-class ViewModel {
+class SearchViewModel {
     let provider = MoyaProvider<GitHubAPI>()
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
-    func request() {
+    deinit {
+        disposeBag = DisposeBag()
+    }
+    
+    func request(text: String, sort: SortType = .desc, perPage: Int = 30, page: Int = 1 ) {
         provider.rx
-            .request(.searchRepositories)
+            .request(
+                .searchRepositories(
+                    text,
+                    sort.rawValue,
+                    perPage,
+                    page
+                )
+            )
             .map(SearchRepositoriesResponse.self)
             .subscribe { event in
                 switch event {
@@ -27,3 +39,4 @@ class ViewModel {
             .disposed(by: disposeBag)
     }
 }
+
